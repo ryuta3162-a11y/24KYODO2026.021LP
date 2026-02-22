@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOYFIT24経堂 2月後半限定キャンペーン</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- フォントをNoto Sans JPに統一 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* =======================================================
+           ■ Root Variables
+           ======================================================= */
+        :root { 
+            --brand: #C21632; 
+            --brand-dark: #8a0e20;
+            --gold-main: #D4AF37; 
+            --gold-light: #F8E71C; 
+            --gold-dark: #B48811; 
+            --gold-gradient: linear-gradient(135deg, #B48811 0%, #F8E71C 25%, #D4AF37 50%, #F8E71C 75%, #B48811 100%);
+            
+            --color-dark: #2c3e50;
+            --color-text: #333333;
+            --color-white: #ffffff;
+            
+            /* 背景色の変更: フィットネス感のあるスタイリッシュなメッシュパターン */
+            --bg-body: #f8f9fa;
+
+            --font-base: 'Noto Sans JP', sans-serif;
+            --font-accent: 'Noto Sans JP', sans-serif;
+            
+            /* レイアウト統一用変数 */
+            --container-max-width: 600px;
+            --section-radius: 20px;
+            
+            --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-strong: 0 10px 25px rgba(194, 22, 50, 0.15);
+        }
+
+        html { box-sizing: border-box; scroll-behavior: smooth; }
+        *, *::before, *::after { box-sizing: inherit; }
+        
+        body {
+            font-family: var(--font-base);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 120px;
+            overflow-x: hidden; 
+            color: var(--color-text);
+            min-height: 100vh;
+            
+            /* フィットネスブランド感を演出する背景 */
+            background-color: var(--bg-body);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+                repeating-linear-gradient(45deg, #dcdcdc 0, #dcdcdc 1px, transparent 0, transparent 10px);
+            background-size: 100% 100%, 20px 20px;
+            background-attachment: fixed;
+            
+            transition: padding-bottom 0.4s ease;
+        }
+        body.banner-hidden { padding-bottom: 40px; }
+
+        /* --- レイアウトの整列 --- */
+        .lp-wrapper {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 全てのセクション幅を統一 */
+        .section-container {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        h2 { font-weight: 700; color: #333; }
+
+        @keyframes pulse-gentle {
+            0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); }
+        }
+        
+        /* フェードインアニメーション */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- 1. トップバナー --- */
+        #limited-time-banner {
+            width: 100%;
+            background: #ffffff;
+            /* 外枠を赤に変更・サイズ調整 */
+            border: 5px solid var(--brand);
+            position: relative;
+            border-radius: 20px;
+            padding: 40px 15px 30px 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(194, 22, 50, 0.2); /* 影も赤系に調整 */
+            margin-top: 30px;
+            overflow: hidden; 
+            background-image: linear-gradient(to bottom, #fff, #fffdf5);
+        }
+
+        .simple-banner-title {
+            background-color: var(--brand);
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 900;
+            padding: 12px 40px;
+            margin-bottom: 5px; /* 下のマージンを少し減らす */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(194, 22, 50, 0.3);
+            display: inline-block;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 600px) {
+             #limited-time-banner { padding: 30px 10px 20px 10px; }
+             .simple-banner-title { font-size: 1.3rem; padding: 10px 20px; width: 90%; }
+        }
+
+        .banner-left-content { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-align: center; z-index: 1; width: 100%; }
+        .banner-text-row-top { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+        
+        .banner-date {
+            font-size: 1.8rem; font-weight: 900; color: var(--brand); line-height: 1;
+            border-bottom: 3px solid var(--gold-main); padding-bottom: 2px;
+            letter-spacing: -0.05em; text-shadow: 1px 1px 0 #fff;
+        }
+        .banner-slots-badge {
+            background: var(--gold-gradient);
+            color: #3e2723; font-weight: 900; font-size: 1.1rem;
+            padding: 6px 15px; border-radius: 50px; line-height: 1; white-space: nowrap;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15); border: 2px solid #fff;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+        }
+        
+        .simple-text-label {
+            display: inline-block;
+            color: #333;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            text-shadow: none;
+        }
+        
+        .countdown-container { display: flex; gap: 8px; align-items: center; justify-content: center; z-index: 1; margin-top: 15px; }
+        .countdown-circle { 
+            width: 60px; height: 60px; 
+            background: linear-gradient(135deg, #a01229 0%, #C21632 100%); 
+            border-radius: 8px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: #ffffff; line-height: 1; border: 2px solid var(--gold-main); 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2), inset 0 2px 5px rgba(255,255,255,0.2);
+        }
+        .countdown-number { font-family: var(--font-accent); font-size: 1.6rem; font-weight: 700; line-height: 1; margin-bottom: 1px; color: #fff; text-shadow: 0 2px 2px rgba(0,0,0,0.3); }
+        .countdown-unit { font-size: 0.6rem; font-weight: 700; opacity: 0.9; color: var(--gold-light); }
+        
+        @media (max-width: 600px) {
+             .banner-date { font-size: 1.5rem; }
+             .banner-slots-badge { font-size: 1rem; }
+             .countdown-circle { width: 55px; height: 55px; }
+             .countdown-number { font-size: 1.4rem; }
+        }
+
+        /* --- Special Highlight (装飾強化版・縮小調整) --- */
+        .hero-special-area { width: 100%; margin-top: 25px; box-sizing: border-box; }
+        
+        .special-highlight {
+            position: relative;
+            /* 幅を95%から90%に縮小して左右の余裕を確保 */
+            width: 90%;
+            margin: 25px auto;
+            /* パディングを調整: 上部を少し詰める（ラベル削除分） */
+            padding: 2rem 0.5rem 1.5rem 0.5rem;
+            border-radius: 20px;
+            /* プレミアムゴールドグラデーション */
+            background: linear-gradient(135deg, #D4AF37 0%, #FDB931 30%, #FFD700 50%, #FDB931 70%, #D4AF37 100%);
+            /* 白枠と金枠の二重ボーダー */
+            border: 3px solid #ffffff;
+            box-shadow: 0 10px 25px rgba(180, 136, 17, 0.4), 0 0 0 2px #B48811;
+            text-align: center;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+        
+        /* 光沢アニメーション (全体を薙ぎ払う光) */
+        .special-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
+            transform: skewX(-25deg);
+            animation: shine-sweep 3.5s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes shine-sweep {
+            0% { left: -150%; opacity: 0; }
+            30% { opacity: 1; }
+            60% { left: 150%; opacity: 0; }
+            100% { left: 150%; opacity: 0; }
+        }
+
+        /* タイトル */
+        .special-line-1 {
+            font-size: 1.5rem; /* サイズダウン */
+            font-weight: 900;
+            color: #4a3b2a; /* 濃いブラウン */
+            text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+            margin: 0.2rem 0 0.2rem 0; /* マージン調整 */
+            line-height: 1.2;
+            position: relative; 
+            z-index: 2;
+        }
+
+        /* 期間表示 (エンジ色ピル型) */
+        .special-line-2 {
+            font-size: 0.9rem; /* サイズダウン */
+            font-weight: 700;
+            color: #fff;
+            background: #800000;
+            padding: 5px 18px;
+            border-radius: 50px;
+            margin: 0.4rem auto;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative; 
+            z-index: 2;
+        }
+
+        /* 通常価格 */
+        .special-line-3 {
+            font-size: 0.9rem; /* サイズダウン */
+            color: #4a3b2a;
+            text-decoration: line-through;
+            display: block;
+            margin-bottom: 0;
+            opacity: 0.9;
+            font-weight: 700;
+            position: relative; 
+            z-index: 2;
+        }
+
+        /* 価格表示 (赤字に白縁取り) */
+        .special-line-4 {
+            font-size: 3rem; /* サイズダウン */
+            line-height: 1;
+            font-weight: 900;
+            font-family: var(--font-accent);
+            color: #C21632;
+            /* 強めの白フチ文字 */
+            text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+            margin-bottom: 0.25rem;
+            position: relative; 
+            z-index: 2;
+        }
+        .special-line-4 .unit {
+            font-size: 1.2rem;
+            color: #4a3b2a;
+            font-weight: 900;
+            margin-left: 2px;
+            text-shadow: none;
+        }
+        
+        @media (max-width: 480px) { 
+            .special-highlight { width: 92%; } /* スマホでも左右に余白 */
+            .special-line-1 { font-size: 1.3rem; } 
+            .special-line-4 { font-size: 2.5rem; } 
+        }
+
+        /* --- プラン選択セクション（統一・フェード切り替え） --- */
+        .plan-selection-section {
+            background-color: transparent; width: 100%; margin: 30px auto 0 auto;
+            position: relative; z-index: 10;
+        }
+
+        .campaign-header-enhanced {
+            width: 100%; background-color: var(--brand); padding: 20px;
+            border-radius: 12px; box-shadow: 0 4px 15px rgba(194, 22, 50, 0.3);
+            margin-bottom: 25px; position: relative; z-index: 20; box-sizing: border-box;
+            text-align: center; color: #fff;
+        }
+        .campaign-header-enhanced h2 { margin: 0; font-size: 1.8rem; font-weight: 900; color: #fff; letter-spacing: 0.05em; }
+        .campaign-header-enhanced .sub-text { display: block; font-size: 1rem; color: #fff; margin-top: 5px; font-weight: 700; opacity: 0.9; }
+        
+        /* タブデザイン調整：パディングなしで幅いっぱい */
+        .plan-tabs {
+            display: flex; justify-content: center; align-items: flex-end; gap: 4px;
+            margin-bottom: 0; position: relative; z-index: 20; padding: 0; /* パディング削除で幅合わせ */
+            width: 100%; box-sizing: border-box;
+        }
+        .plan-tab {
+            flex: 1; padding: 14px 5px; border-radius: 12px 12px 0 0;
+            font-weight: 900; font-size: 1rem; cursor: pointer; text-align: center;
+            position: relative; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            background: #e0e0e0; color: #777; border: 1px solid #ccc;
+            border-bottom: none; box-shadow: inset 0 -5px 10px rgba(0,0,0,0.05);
+            transform: translateY(4px); z-index: 1;
+        }
+        .plan-tab.active {
+            background: #fff; color: #333; border: 3px solid var(--gold-main);
+            border-bottom: 4px solid #fff; transform: translateY(0); z-index: 10;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1); font-size: 1.1rem;
+            padding-bottom: 18px; margin-bottom: -4px;
+        }
+        .plan-tab[data-target="plan-normal"].active { color: var(--brand); }
+        .plan-tab[data-target="plan-6months"].active { color: #3e2723; }
+        
+        .recommend-badge {
+            position: absolute; top: -25px; right: -10px; background: var(--gold-gradient);
+            color: #3e2723; font-size: 0.8rem; font-weight: 900; padding: 5px 12px;
+            border-radius: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border: 2px solid #fff;
+            white-space: nowrap; animation: pulse-gentle 2s infinite ease-in-out; z-index: 20;
+        }
+        .recommend-badge::after {
+            content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+            border-width: 6px 6px 0; border-style: solid; border-color: #FDB931 transparent transparent transparent;
+        }
+
+        /* プラン表示エリア */
+        .plan-container-wrapper {
+            overflow: hidden; border-radius: 0 0 16px 16px;
+            /* 外枠を赤に変更 */
+            border: 3px solid var(--brand); border-top: none;
+            box-shadow: 0 15px 40px rgba(194, 22, 50, 0.1);
+            background-color: var(--color-white);
+            position: relative; z-index: 5; padding-top: 15px;
+            transition: all 0.3s ease;
+            width: 100%; box-sizing: border-box; /* 幅を確実に合わせる */
+        }
+
+        .plan-content-item { display: none; animation: fadeIn 0.5s ease forwards; }
+        .plan-content-item.active { display: block; }
+
+        .price-showcase {
+            background-color: #fff; border-radius: 12px; max-width: 95%; margin: 0 auto; text-align: left; overflow: hidden; 
+            border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .price-list { padding: 0 1rem; }
+        .price-item { display: flex; justify-content: center; align-items: flex-start; padding: 1rem 0; border-bottom: 1px dashed #ccc; gap: 0.5rem; }
+        .price-item .label-group { display: flex; align-items: center; gap: 0.5rem; flex: 1; justify-content: flex-start; text-align: left; min-width: 130px; }
+        .price-item .number-circle { flex-shrink: 0; width: 28px; height: 28px; background-color: #555; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 900; }
+        .price-item.is-discount .number-circle { background-color: var(--brand); }
+        .price-item.is-free .number-circle { background-color: var(--gold-dark); color: #fff; }
+        .price-item .label { font-size: 0.9rem; font-weight: 700; color: #333; }
+        .price-item .label .note { font-size: 0.75rem; color: #d32f2f; font-weight: normal; display: block; }
+        .divider-dot { width: 1px; height: 50px; background-image: linear-gradient(to bottom, #ccc 60%, transparent 40%); background-size: 1px 8px; background-repeat: repeat-y; align-self: center; }
+        
+        .price-display-center { 
+            font-family: var(--font-accent); font-weight: 700; color: var(--color-dark); text-align: center; line-height: 1; 
+            flex: 1; min-width: 140px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .price-display-center .price-value { font-size: 1.4rem; font-weight: 900; font-family: var(--font-base); }
+        .price-display-center .price-value.zero-yen { color: var(--brand); font-size: 1.6rem; }
+        .price-display-center .unit { font-family: var(--font-base); font-size: 0.9rem; font-weight: 700; color: #333; }
+        .price-display-center .free-option-note { font-size: 0.8rem; font-weight: 700; color: var(--brand); display: block; margin-top: 2px; background: #fff0f0; padding: 2px 6px; border-radius: 4px; }
+        .price-display-center .calculation-note-final { font-size: 0.75rem; font-weight: normal; color: #666; display: block; line-height: 1.3; margin-top: 4px; }
+
+        .mid-list-total-block {
+            padding: 1rem; text-align: center; background-color: #fffaf0; 
+            border: 2px solid var(--gold-main); border-radius: 10px; margin: 1.5rem 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .mid-list-total-block .label { font-size: 0.9rem; font-weight: 700; color: #333; margin-bottom: 0.25rem; }
+        .mid-list-total-block .price-large { font-family: var(--font-base); font-size: 1.8rem; font-weight: 900; color: var(--brand); line-height: 1.1; }
+        .mid-list-total-block .unit-large { font-size: 0.9rem; color: #333; }
+        .mid-list-total-block .sub-desc { font-size: 0.75rem; font-weight: normal; color: #666; margin-top: 2px; }
+
+        .monthly-fee { padding: 1.5rem; text-align: center; background-color: #f8f9fa; border-top: 1px solid #eee; border-radius: 0 0 12px 12px; }
+        .monthly-fee .label { font-size: 0.85rem; font-weight: 700; color: #666; margin-bottom: 0.5rem; }
+        .monthly-fee .price-large { font-family: var(--font-base); font-size: 1.4rem; font-weight: 900; color: var(--color-dark); }
+        
+        /* 条件リスト（デジタルカード風に統合・左詰め・チェックアイコン） */
+        .condition-list-content {
+            padding: 15px 10px;
+        }
+        .condition-item {
+            display: flex; 
+            align-items: flex-start; /* 上揃え */
+            gap: 10px;
+            margin-bottom: 12px; 
+            text-align: left; /* 左詰め */
+            font-size: 0.85rem; font-weight: 700; color: #333;
+        }
+        .condition-item:last-child { margin-bottom: 0; }
+        
+        /* --- デジタル・ガジェット風ステップバナー (ゆとり調整) --- */
+        .digital-step-card {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* 角丸小さめ */
+            padding: 15px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            /* ゆとりを持たせて幅を合わせる (95%で統一) */
+            width: 95%;
+            max-width: 95%;
+            margin: 0 auto 15px auto;
+            box-sizing: border-box;
+        }
+        .digital-step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+            border-color: var(--brand);
+        }
+        /* STEPラベル（左上バッジ） */
+        .step-badge {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 900;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
+        }
+        .step-badge.gold { background: var(--gold-gradient); color: #3e2723; }
+        .step-badge.red { background: var(--brand); color: #fff; }
+
+        .step-main-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .step-info { flex: 1; }
+        .step-title {
+            font-size: 1rem;
+            font-weight: 900;
+            color: #333;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+        .step-desc {
+            font-size: 0.75rem;
+            color: #666;
+            margin: 0;
+        }
+        /* ボタン部分 */
+        .step-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 900;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+            min-width: 100px;
+        }
+        .step-action-btn:hover { opacity: 0.8; }
+        
+        .btn-gold-flat {
+            background: var(--gold-gradient);
+            color: #3e2723;
+            border: 1px solid #d4af37;
+        }
+        .btn-red-flat {
+            background: var(--brand);
+            color: #fff;
+            border: 1px solid #a01229;
+        }
+        
+        /* 1月31日など特殊日用の警告 */
+        .calc-alert { font-size: 0.8rem; color: #fff; background: #333; padding: 5px; border-radius: 4px; display: inline-block; margin-bottom: 5px; }
+
+        /* --- 以下、元のデザインを復元 --- */
+        .cta-button-extra-promo { display: inline-block; background: var(--brand); color: #ffffff; font-weight: 700; font-size: 0.9rem; padding: 0.8rem 1.5rem; border-radius: 12px; text-decoration: none; margin-top: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; width: 320px; max-width: 90%; margin-left: auto; margin-right: auto; border: 2px solid #fff; }
+        .cta-button-extra-promo strong { font-size: 1.1rem; font-weight: 900; display: block; margin-top: 0.25rem; color: var(--gold-main); }
+        .cta-button-extra-promo:hover { transform: scale(1.03); }
+
+        .options-group-section {
+            background: linear-gradient(145deg, #C21632 0%, #990020 100%); /* 元の赤背景 */
+            position: relative; z-index: 1; color: var(--color-white); border-radius: 16px;
+            /* 外枠を赤に変更（背景と同化するため白のボーダーを挟むか、あるいはより濃い赤にするかですが、ここではブランドカラーで統一） */
+            box-shadow: 0 0 0 4px var(--brand), var(--shadow-soft);
+            padding: 40px 0; margin: 40px auto; width: 100%; overflow: hidden;
+        }
+        .options-carousel-section .text-box { margin: 0 auto; max-width: 90%; }
+        .options-carousel-section { padding: 0; background-color: transparent !important; width: 100%; padding-bottom: 20px; }
+        .options-carousel-section:first-child { padding-top: 20px; }
+        .options-carousel-section:nth-child(2) { margin-top: 20px; }
+        .options-carousel-section .section-title { font-size: 1.6rem; font-weight: 900; color: #fff; text-shadow: 0 0 5px rgba(0,0,0,0.5); margin-bottom: 0.5rem; }
+        .options-carousel-section .section-title .highlight { font-family: var(--font-base); color: var(--gold-main); font-size: 2.5rem; margin: 0 0.25rem; vertical-align: -0.1em; }
+        .options-carousel-section .section-subtitle { font-size: 0.9rem; color: #fff; margin-bottom: 2.5rem; line-height: 1.6; font-weight: 700; }
+        
+        .scene { width: 100%; height: 450px; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; }
+        .card-carousel { width: 280px; height: 340px; position: relative; touch-action: pan-y; cursor: grab; user-select: none; }
+        .card-carousel:active { cursor: grabbing; }
+        .option-card-3d {
+            position: absolute; width: 280px; height: 340px; border-radius: 16px; overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), z-index 0s 0.25s;
+            box-shadow: var(--shadow-strong); border: 4px solid var(--gold-main); background-color: #ffffff; 
+            display: flex; flex-direction: column; justify-content: flex-start; padding: 1.5rem 1rem; text-align: center;
+            left: 50%; top: 0; transform: translateX(-50%); opacity: 1; z-index: 10;
+        }
+        .card-icon-area { width: 100%; flex-grow: 1; display: flex; justify-content: center; align-items: center; padding-bottom: 1rem; }
+        .card-icon { max-width: 150px; max-height: 150px; object-fit: contain; }
+        .card-info-area { width: 100%; flex-shrink: 0; }
+        .card-title { font-size: 1.25rem; font-weight: 900; color: var(--color-dark); line-height: 1.3; }
+        .card-price { font-family: var(--font-base); font-size: 1.6rem; font-weight: 700; color: var(--brand); margin-top: 0.5rem; }
+        .card-price .unit { font-family: var(--font-base); font-size: 0.8rem; font-weight: normal; color: #555; }
+        .card-description { font-size: 0.8rem; color: #666; margin-top: 0.75rem; line-height: 1.5; min-height: 3.6rem; }
+        .card-badge { position: absolute; top: 1rem; left: 1rem; padding: 0.375rem 0.75rem; font-weight: 900; font-size: 0.8rem; border-radius: 0.375rem; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.2); overflow: hidden; }
+        .card-badge.free { background: linear-gradient(135deg, #8a0e20 0%, #C21632 100%); color: #fff; border: 1px solid rgba(255,255,255,0.6); }
+        .card-badge.paid { background: linear-gradient(135deg, #B48811 0%, #D4AF37 100%); color: #3e2723; border: 1px solid #fff; }
+        /* 矢印ボタンを白背景・黒文字に変更 */
+        .carousel-nav { margin-top: 2.5rem; display: flex; justify-content: center; align-items: center; gap: 1.5rem; }
+        .carousel-nav button { 
+            width: 50px; height: 50px; border-radius: 50%; 
+            background-color: #fff; /* 白背景 */
+            border: 1px solid #ddd; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            color: #000; /* 黒文字 */
+            display: flex; align-items: center; justify-content: center; 
+            cursor: pointer; transition: transform 0.2s; 
+        }
+
+        /* 注意事項セクション (以前のデザインを復元、幅だけ調整) */
+        .notice-container-v22 {
+            background-color: #fff; border: 5px solid var(--brand); border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); margin: 60px auto 0 auto; padding: 30px 25px;
+            text-align: center; position: relative; 
+            /* 幅をステップバナー(95%)に合わせる */
+            width: 95%; max-width: 95%;
+            box-sizing: border-box;
+        }
+        /* タイトル左右の線装飾 */
+        .notice-container-v22 .notice-title-v22 { 
+            font-family: var(--font-base); font-size: 2.2rem; font-weight: 700; color: var(--brand); 
+            margin-bottom: 25px; display: flex; align-items: center; justify-content: center; 
+        }
+        .notice-container-v22 .notice-title-v22::before, .notice-container-v22 .notice-title-v22::after { 
+            content: ''; flex: 1; height: 3px; background-color: var(--brand); opacity: 0.5; margin: 0 10px; 
+        }
+        .notice-container-v22 .notice-body-v22 { font-size: 0.85rem; line-height: 1.8; font-weight: 700; color: #333; margin-bottom: 25px; text-align: center; }
+        .notice-container-v22 .notice-body-v22 strong { color: #000; background-color: var(--gold-main); padding: 2px 6px; border-radius: 4px; }
+        .notice-container-v22 .notice-warning-v22 { display: block; font-size: 0.8rem; font-weight: 900; color: #ffffff; background-color: #d32f2f; padding: 12px; border-radius: 8px; margin-top: 20px; }
+        .notice-container-v22 .cta-button-video { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(45deg, #ffea00, #ffd600); color: var(--color-dark); font-weight: 900; font-size: 1.1rem; padding: 12px 24px; border-radius: 50px; text-decoration: none; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+        .notice-container-v22 .cta-button-video:hover { transform: scale(1.05); }
+
+        /* 追加特典セクション (赤枠統一・シンプルバナー) */
+        .bonus-section-red { 
+            display: block; text-decoration: none; /* リンクとして機能させる */
+            background: #fff;
+            border: 5px solid var(--brand); /* 赤い太枠 */
+            border-radius: 12px;
+            padding: 30px 25px;
+            margin: 40px auto 0 auto;
+            width: 95%; max-width: 95%; /* 注意事項と同じ幅 */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .bonus-section-red:hover {
+            transform: scale(1.02);
+        }
+        
+        .bonus-section-red .bonus-title { font-size: 1.8rem; font-weight: 900; color: #333; margin-bottom: 10px; }
+        .bonus-section-red .bonus-desc { font-size: 0.9rem; color: #555; font-weight: 700; margin-bottom: 20px; line-height: 1.6; }
+        
+        /* 大きな「詳細を見る」ボタン */
+        .bonus-btn-large {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 80%; max-width: 400px;
+            background: var(--gold-gradient);
+            color: #3e2723;
+            font-size: 1.2rem; font-weight: 900;
+            padding: 15px; border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(180, 136, 17, 0.3);
+            border: 2px solid #fff;
+        }
+        
+        /* アクセスマップセクション */
+        .access-section { background: #ffffff; margin: 30px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1); transition: all 0.3s ease-out; border: 4px solid var(--brand); width: 100%; box-sizing: border-box; }
+        .access-section:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2); }
+        .access-header { padding: 0; background: #fff; }
+        .map-embed-container { position: relative; width: 100%; height: 400px; border-top: 1px solid #eee; }
+        .map-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
+        /* 店舗情報エリアの背景を真っ白に統一 */
+        .entrance-photo-container { padding: 25px; background-color: #ffffff !important; border-top: 1px solid #e9ecef; border-bottom: 1px solid #e9ecef; }
+        .entrance-photo-container img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .entrance-photo-container .caption { font-size: 0.9rem; color: #666; margin-top: 15px; font-weight: 700; }
+        
+        .access-details { padding: 25px; text-align: left; background-color: #ffffff !important; }
+        .access-details strong.store-name { display: block; font-size: 1.3rem; margin-bottom: 20px; text-align: center; color: #333; }
+        .access-info-item { display: flex; flex-direction: row; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
+        .access-info-item .info-icon { flex-shrink: 0; margin-top: 4px; color: #555; }
+        .access-info-item span, .access-info-item a, .access-info-item div { font-size: 1rem; color: #333; line-height: 1.7; }
+        
+        .facilities-grid { margin-top: 25px; padding-top: 25px; border-top: 1px solid #e9ecef; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px 10px; background-color: #ffffff !important; }
+        .facility-item { text-align: center; }
+        .facility-item .facility-icon { width: 48px; height: 48px; margin: 0 auto 8px auto; object-fit: contain; }
+        .facility-item strong { display: block; font-size: 0.9rem; font-weight: 700; color: #333; }
+        .facility-item p { font-size: 0.8rem; color: #666; margin: 4px 0 0 0; line-height: 1.4; }
+        
+        .map-button-container { padding: 25px; border-top: 1px solid #e9ecef; background-color: #ffffff !important; }
+        .map-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background-color: var(--brand); color: #fff; font-size: 1rem; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 14px; box-shadow: 0 6px 15px rgba(194, 22, 50, 0.4); transition: all 0.3s ease; }
+        @media (max-width: 640px) { .facilities-grid { grid-template-columns: repeat(2, 1fr); gap: 25px 15px; } }
+
+        /* ▼ 固定バナーのデザインを白背景＆立体的モダンにアップデート ▼ */
+        .fixed-banner { 
+            position: fixed; bottom: 0; left: 0; width: 100%; 
+            background: rgba(255, 255, 255, 0.65); /* 背景をすりガラス風に透過 */
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); /* ぼかし効果 */
+            display: flex; justify-content: center; gap: 10px; padding: 15px 10px; z-index: 9999; 
+            border-top: 1px solid rgba(255,255,255,0.8); 
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05); transition: transform 0.4s ease; 
+        }
+        .fixed-banner .banner-btn { 
+            font-size: 0.95rem; font-weight: 900; border-radius: 50px; text-decoration: none; flex: 1; 
+            display: flex; align-items: center; justify-content: center; gap: 4px; padding: 14px 5px;
+            position: relative; transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            /* 外側の影で浮かせ、内側の白いハイライトで立体的なボタンを演出 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 2px 0 rgba(255, 255, 255, 0.3); z-index: 1; 
+        }
+        .fixed-banner .banner-btn:active {
+            transform: translateY(3px); /* 押した時に沈み込む */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), inset 0 2px 0 rgba(255, 255, 255, 0.1);
+        }
+        .fixed-banner .trial { 
+            background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%); 
+            color: #3e2723 !important; border: 1px solid #e6b800; text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+        }
+        .fixed-banner .app { 
+            background: linear-gradient(135deg, #e53935 0%, #C21632 100%); 
+            color: #ffffff !important; border: 1px solid #b71c1c; text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        /* ▲ ここまで ▲ */
+
+        body.banner-hidden .fixed-banner { transform: translateY(100%); }
+        #banner-toggle-container { position: fixed; bottom: 90px; right: 20px; z-index: 10000; transition: bottom 0.4s ease; }
+        body.banner-hidden #banner-toggle-container { bottom: 20px; }
+        #banner-toggle-btn { width: 50px; height: 50px; background-color: var(--brand); color: white; border-radius: 50%; border: 2px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.3); cursor: pointer; display: flex; justify-content: center; align-items: center; transition: transform 0.3s ease, background-color 0.3s ease; }
+        #banner-toggle-btn:hover { transform: scale(1.1); }
+        body.banner-hidden #banner-toggle-btn { background-color: var(--gold-main); color: #333; }
+        #banner-toggle-btn i { font-size: 24px; }
+        .toggle-tooltip { position: absolute; bottom: 110%; right: 0; background-color: #333; color: white; padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: 700; white-space: nowrap; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none; }
+        .toggle-tooltip::after { content: ''; position: absolute; top: 100%; right: 18px; border-width: 6px; border-style: solid; border-color: #333 transparent transparent transparent; }
+        #banner-toggle-container:hover .toggle-tooltip { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    </style>
+</head>
+
+<body>
+
+<!-- コンテンツ全体をラッパーで囲み、中央寄せを保証 -->
+<div class="lp-wrapper">
+
+    <div id="limited-time-banner">
+        <!-- シンプルなタイトルボックス (C21632) -->
+        <div class="simple-banner-title">
+            2月後半限定キャンペーン
+        </div>
+        
+        <!-- 追加: 事務手数料お得バナー -->
+        <div class="commission-free-badge" style="background: #fff0f0; border: 2px solid var(--brand); color: var(--brand); font-weight: 900; padding: 0.5rem 1.5rem; border-radius: 50px; margin-bottom: 15px; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(194, 22, 50, 0.15);">
+            事務手数料 3,300円分お得に！
+        </div>
+
+        <div class="banner-left-content">
+            <div class="banner-text-row-top">
+                <span class="banner-date" id="dynamic-end-date">2月28日(土)まで</span>
+                <span class="banner-slots-badge" id="remaining-slots">残り--名様</span>
+            </div>
+            <!-- シンプル化したラベル -->
+            <div class="simple-text-label">
+                ◆ キャンペーン終了まで ◆
+            </div>
+        </div>
+        <div id="banner-countdown" class="countdown-container"></div>
+
+        <!-- ファーストビュー: スペシャルプライス・ブロック (装飾強化版) -->
+        <div class="hero-special-area">
+            <div class="special-highlight">
+                <div class="special-line-1">6ヶ月継続プラン</div>
+                <div class="special-line-2">2026年3月〜8月分(6ヶ月間)</div>
+                <div class="special-line-3">通常 9,350円</div>
+                <div class="special-line-4">7,150<span class="unit">円(税込)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- プラン選択セクション（タブ＆フェードUI） -->
+    <section class="plan-selection-section py-8">
+        
+        <!-- ヘッダー（赤背景・白文字・シンプル） -->
+        <div class="campaign-header-enhanced">
+            <div class="campaign-header-inner">
+                <h2>2月後半限定キャンペーン</h2>
+                <span class="sub-text">選べる2つのプラン</span>
+            </div>
+        </div>
+
+        <!-- タブ（吹き出し・メタリックデザイン） -->
+        <div class="plan-tabs">
+            <!-- 通常プラン (先頭) -->
+            <div class="plan-tab active" data-target="plan-normal">
+                通常プラン
+                <div class="recommend-badge" style="background:linear-gradient(135deg, #eee, #ddd); color:#555; border:1px solid #ccc; top:-32px; font-size:0.75rem;">在籍縛りなし!</div>
+            </div>
+            
+            <!-- 6ヶ月継続プラン (右側・おすすめ) -->
+            <div class="plan-tab" data-target="plan-6months">
+                6ヶ月継続プラン
+                <div class="recommend-badge">おすすめ!</div>
+            </div>
+        </div>
+
+        <!-- コンテンツエリア（フェード切り替え） -->
+        <div class="plan-container-wrapper">
+            
+            <!-- プラン0: 通常プラン -->
+            <div class="plan-content-item active" id="plan-normal">
+                <div class="plan-accordion-content">
+                    <div class="price-showcase">
+                        <div class="price-list">
+                            <!-- 1. 2月会費（無料に変更） -->
+                            <div class="price-item">
+                                <div class="label-group">
+                                    <span class="number-circle" style="background-color: #555;">1</span>
+                                    <div class="label">2月会費<span class="note" style="color:var(--brand); font-weight:700;">(完全無料)</span></div>
+                                </div>
+                                <div class="divider-dot"></div>
+                                <div class="price-display-center" id="daily-rate-price-plan2">
+                                    <!-- JSで無料の表示が挿入されます -->
+                                </div>
+                            </div>
+
+                            <!-- 2. 初期費用 -->
+                            <div class="price-item">
+                                <div class="label-group">
+                                    <span class="number-circle" style="background-color: #555;">2</span>
+                                    <div class="label">初期費用<span class="note" style="color:#555; font-weight:400;">(入会金のみ)</span></div>
+                                </div>
+                                <div class="divider-dot"></div>
+                                <div class="price-display-center">
+                                    <span class="price-value" style="font-size: 1.1rem;">入会金 2,200円</span>
+                                    <span class="free-commission-note" style="display: block; background: var(--brand); color: #fff; font-size: 0.75rem; font-weight: 900; padding: 3px 6px; border-radius: 4px; margin-top: 5px;">事務手数料3,300円は無料</span>
+                                </div>
+                            </div>
+
+                            <!-- 3. オプション -->
+                            <div class="price-item is-free">
+                                <div class="label-group">
+                                    <span class="number-circle">3</span>
+                                    <div class="label">オプション<span class="note" style="color: var(--brand);">2月・3月分</span></div>
+                                </div>
+                                <div class="divider-dot"></div>
+                                <div class="price-display-center">
+                                    <span class="price-value zero-yen">0<span class="unit">円</span></span>
+                                    <span class="free-option-note">(無料オプション対象)</span>
+                                </div>
+                            </div>
+
+                            <!-- 2月支払目安 -->
+                            <div class="mid-list-total-block">
+                                <div class="label"><i class="ph ph-wallet"></i> 2月お支払い合計</div>
+                                <div><span class="price-large" id="initial-total-price-plan2">0<span class="unit-large">円(税込)</span></span></div>
+                                <div class="sub-desc">(初期費用2,200円のみ！ 2月会費0円)</div>
+                            </div>
+                        </div>
+                        
+                        <!-- 3月以降 -->
+                        <div class="monthly-fee">
+                            <div class="label">**3月以降の通常月額**</div>
+                            <div><span class="price-large">9,350<span class="unit-large">円(税込)</span></span><span class="plus">+</span><span class="option-fee">オプション料金</span></div>
+                        </div>
+                    </div>
+
+                    <!-- 条件リスト (デジタルカード風に変更) -->
+                    <div class="digital-step-card condition-card" style="margin: 30px auto; border-color: #ccc;">
+                        <div class="step-badge red">キャンペーン注意事項</div>
+                        <div class="condition-list-content" style="padding: 10px 0;">
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i>
+                                <span>JOYFIT APPからのご入会<br><span style="font-size:0.85rem; font-weight:normal;">(クレジットカード決済のみ対応)</span></span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>在籍期間の縛りなし</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>当月末退会のみ解約金5,500円(税込)が発生致します</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 0; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>無料オプションは入会時、全て自動契約となります</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="how-to-join-container">
+                        <!-- 通常プランはステップ1つだけ -->
+                        <div class="digital-step-card">
+                            <div class="step-badge red">STEP 1 アプリ入会</div>
+                            <div class="step-main-content">
+                                <i class="ph ph-device-mobile" style="font-size: 2rem; color: var(--brand);"></i>
+                                <div class="step-info">
+                                    <div class="step-title">APPでカンタン入会</div>
+                                    <p class="step-desc">JOYFIT APPをDLして入会【最短5分】</p>
+                                </div>
+                                <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-red-flat">アプリDL</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- プラン1: 6ヶ月継続プラン -->
+            <div class="plan-content-item" id="plan-6months">
+                <div class="plan-accordion-content">
+                    <div class="price-showcase">
+                        <div class="price-list">
+                            <!-- 1. 2月会費（無料に変更） -->
+                            <div class="price-item">
+                                <div class="label-group">
+                                    <span class="number-circle" style="background-color: #555;">1</span>
+                                    <div class="label">2月会費<span class="note" style="color:var(--brand); font-weight:700;">(完全無料)</span></div>
+                                </div>
+                                <div class="divider-dot"></div>
+                                <div class="price-display-center" id="daily-rate-price-plan1">
+                                    <!-- JSで無料の表示が挿入されます -->
+                                </div>
+                            </div>
+
+                            <!-- 2. 初期費用 -->
+                            <div class="price-item">
+                                <div class="label-group">
+                                    <span class="number-circle" style="background-color: #555;">2</span>
+                                    <div class="label">初期費用<span class="note" style="color:#555; font-weight:400;">(入会金のみ)</span></div>
+                                </div>
+                                <div class="divider-dot"></div>
+                                <div class="price-display-center">
+                                    <span class="price-value" style="font-size: 1.1rem;">入会金 2,200円</span>
+                                    <span class="free-commission-note" style="display: block; background: var(--brand); color: #fff; font-size: 0.75rem; font-weight: 900; padding: 3px 6px; border-radius: 4px; margin-top: 5px;">事務手数料3,300円は無料</span>
+                                </div>
+                            </div>
+
+                            <!-- 3. オプション -->
+                            <div class="price-item is-free">
+                                <div class="label-group">
+                                    <span class="number-circle">3</span>
+                                    <div class="label">オプション<span class="note" style="color: var(--brand);">2月・3月分</span></div>
+                                </div>
+                                <div class="divider-dot"></div>
+                                <div class="price-display-center">
+                                    <span class="price-value zero-yen">0<span class="unit">円</span></span>
+                                    <span class="free-option-note">(無料オプション対象)</span>
+                                </div>
+                            </div>
+
+                            <!-- 2月支払目安 -->
+                            <div class="mid-list-total-block">
+                                <div class="label"><i class="ph ph-wallet"></i> 2月お支払い合計</div>
+                                <div><span class="price-large" id="initial-total-price-plan1">0<span class="unit-large">円(税込)</span></span></div>
+                                <div class="sub-desc">(初期費用2,200円のみ！ 2月会費0円)</div>
+                            </div>
+
+                            <!-- キャンペーン特別価格 (装飾強化版) -->
+                            <div class="special-highlight">
+                                <div class="special-line-1">6ヶ月継続プラン</div>
+                                <div class="special-line-2">2026年3月〜8月分(6ヶ月間)</div>
+                                <div class="special-line-3">通常 9,350円</div>
+                                <div class="special-line-4">7,150<span class="unit">円(税込)</span></div>
+                            </div>
+                        </div>
+
+                         <!-- 9月以降 -->
+                        <div class="monthly-fee">
+                            <div class="label">**9月以降の通常月額**</div>
+                            <div><span class="price-large">9,350<span class="unit-large">円(税込)</span></span><span class="plus">+</span><span class="option-fee">オプション料金</span></div>
+                        </div>
+                    </div>
+
+                    <!-- 条件リスト (デジタルカード風に変更) -->
+                    <div class="digital-step-card condition-card" style="margin: 30px auto; border-color: #ccc;">
+                        <div class="step-badge red">キャンペーン注意事項</div>
+                        <div class="condition-list-content" style="padding: 10px 0;">
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>2026年8月末までの在籍が条件です</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>期間内に退会された場合、解約金として13,200円が発生します</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>JOYFIT APPからのご入会 ＋ 下記追加特典から申請が必須です</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 0; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>無料オプションは入会時、全て自動契約となります</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="how-to-join-container">
+                        <!-- ステップ1: 追加特典 (先に申請) -->
+                        <div class="digital-step-card">
+                            <div class="step-badge gold">STEP 1 追加特典</div>
+                            <div class="step-main-content">
+                                <i class="ph ph-pencil-simple-line" style="font-size: 2rem; color: var(--gold-dark);"></i>
+                                <div class="step-info">
+                                    <div class="step-title">入会前に必ず送信！</div>
+                                    <p class="step-desc">6ヶ月継続プランを申請する</p>
+                                </div>
+                                <a href="https://24kyodo-special-plan.vercel.app/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-gold-flat">申請する</a>
+                            </div>
+                        </div>
+                        
+                        <!-- ステップ2: アプリ入会 (後に実行) -->
+                        <div class="digital-step-card">
+                            <div class="step-badge red">STEP 2 アプリ入会</div>
+                            <div class="step-main-content">
+                                <i class="ph ph-device-mobile" style="font-size: 2rem; color: var(--brand);"></i>
+                                <div class="step-info">
+                                    <div class="step-title">APPでカンタン入会</div>
+                                    <p class="step-desc">JOYFIT APPをDLして入会【最短5分】</p>
+                                </div>
+                                <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-red-flat">アプリDL</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- オプションカルーセルセクション (復刻版・スワイプ対応) -->
+    <section class="options-group-section" id="options-group-section">
+        <section class="options-carousel-section">
+            <div class="text-box">
+                <h2 class="section-title">
+                    <span class="highlight">8</span>つの無料オプション
+                </h2>
+                <p class="section-subtitle">
+                    <strong>キャンペーン期間中<br>2月・3月分が<span style="color: var(--gold-main); font-size: 1.2rem;">0円</span>で使い放題！<br>※8つのオプションは入会時自動契約されます。</strong>
+                </p>
+            </div>
+            <div class="scene">
+                <div id="card-carousel-free" class="card-carousel">
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button id="carousel-prev-free">
+                    <i class="ph ph-arrow-left"></i>
+                </button>
+                <button id="carousel-next-free">
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- 有料オプション -->
+        <section class="options-carousel-section" style="margin-top: 60px;">
+            <div class="text-box">
+                <h2 class="section-title">
+                    <span class="highlight">3</span>つの有料オプション
+                </h2>
+                <p class="section-subtitle">
+                    ※こちらはご希望の方のみ契約いただけます
+                </p>
+            </div>
+            <div class="scene">
+                <div id="card-carousel-paid" class="card-carousel">
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button id="carousel-prev-paid">
+                    <i class="ph ph-arrow-left"></i>
+                </button>
+                <button id="carousel-next-paid">
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+    </section>
+
+    <!-- 注意事項セクション (以前のデザインを復元) -->
+    <div class="notice-container-v22" id="notice-section">
+        <div class="notice-title-v22">
+            <span>注意事項</span>
+        </div>
+        <div class="notice-body-v22">
+            オプションは入会時に<strong>自動契約</strong>となります<br />
+            不要な場合<strong>3月末迄</strong>に解約をお願いいたします<br /><br />
+            入会後<strong>[JOYFIT APP]</strong>から解約が可能です<br />
+            解約後も月末迄サービスをご利用頂けます
+        </div>
+        <span class="notice-warning-v22">※解約忘れによる返金は出来ません</span>
+        <a href="https://www.youtube.com/shorts/qpvkmWi-vTM" class="cta-button-video" target="_blank" rel="noopener noreferrer">
+            <i class="ph ph-youtube-logo"></i>
+            <span>解約方法はコチラをタップ</span>
+        </a>
+    </div>
+
+    <!-- 追加特典セクション (赤枠統一・シンプルバナー) -->
+    <a href="https://24kyodo-special-plan.vercel.app/" target="_blank" rel="noopener noreferrer" class="bonus-section-red">
+         <!-- タイトル -->
+         <h3 class="bonus-title">
+            お得な<span style="color: var(--brand);">追加特典</span>
+         </h3>
+         <!-- 説明文 -->
+         <p class="bonus-desc">
+            追加特典はこちらからご確認下さい！<br>
+            紹介・移籍・学割など、該当者はさらにお得
+         </p>
+         <!-- ボタン -->
+         <span class="bonus-btn-large">
+            詳細を見る
+         </span>
+    </a>
+
+    <!-- アクセスマップセクション -->
+    <section class="access-section">
+        <header class="access-header">
+            <img src="joylogo.jpg" alt="JOYFIT24経堂 アクセスマップ" onerror="this.onerror=null; this.src='https://placehold.co/600x200/C21632/ffffff?text=JOYFIT24+KYODO';">
+        </header>
+        <div class="map-embed-container">
+            <iframe src="https://www.google.com/maps?q=JOYFIT24経堂,東京都世田谷区経堂5-23-13&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="entrance-photo-container">
+            <p class="caption">店舗外観</p>
+            <img src="entrance.jpg" alt="JOYFIT24 経堂 店舗の外観" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e0e0e0/C21632?text=Store+Exterior';">
+        </div>
+        <div class="access-details">
+            <strong class="store-name">JOYFIT24経堂</strong>
+            <div class="access-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>〒156-0052<br>東京都世田谷区経堂5-23-13 2F・3F</span>
+            </div>
+            <div class="access-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div><strong>アクセス</strong><br>小田急線「経堂駅」より徒歩9分</div>
+            </div>
+            <div class="access-info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div style="background: #ffffff !important; padding: 0;"><strong>受付時間</strong><br><span>平日 10:00～21:00</span><br><span>土日祝 12:00～20:00</span><br><small>※毎週月曜日・木曜日は終日スタッフ不在</small></div>
+            </div>
+            <div class="facilities-grid">
+                <div class="facility-item"><img src="a.jpg" alt="ジムエリア" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=Gym';"><strong>2Fジムエリア</strong><p>広々空間×充実マシン</p></div>
+                <div class="facility-item"><img src="b.jpg" alt="スタジオエリア" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=Studio';"><strong>3Fスタジオエリア</strong><p>ホットスタジオ</p></div>
+                <div class="facility-item"><img src="c.jpg" alt="24時間営業" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=24H';"><strong>24時間営業</strong><p>※2Fジムエリア</p></div>
+                <div class="facility-item"><img src="d.jpg" alt="土足OK" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=Shoes';"><strong>土足OK</strong><p>※サンダル＆裸足は×</p></div>
+                <div class="facility-item"><img src="h.jpg" alt="駐車場・駐輪場" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=Parking';"><strong>無料駐車場6台</strong><p>※駐輪場もあります</p></div>
+                <div class="facility-item"><img src="e.jpg" alt="シャワールーム" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=Shower';"><strong>シャワールーム</strong><p>男女別計19部屋</p></div>
+                <div class="facility-item"><img src="g.jpg" alt="女性ミストサウナ" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=Mist';"><strong>女性ミストサウナ</strong><p>約40℃設定</p></div>
+                <div class="facility-item"><img src="f.jpg" alt="男性ドライサウナ" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=Sauna';"><strong>男性ドライサウナ</strong><p>約80℃設定</p></div>
+            </div>
+        </div>
+        <div class="map-button-container">
+            <a href="https://www.google.com/maps/search/?api=1&query=JOYFIT24経堂,東京都世田谷区経堂5-23-13" class="map-button" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                <span>Googleマップでルートを確認</span>
+            </a>
+        </div>
+    </section>
+
+</div>
+
+<!-- 固定バナー -->
+<div class="fixed-banner">
+    <a href="https://24-kyodo-freetrial.vercel.app/" class="banner-btn trial" target="_blank">
+        <i class="ph-bold ph-calendar-plus" style="font-size: 1.2rem;"></i>無料見学・体験はこちら
+    </a>
+    <a href="https://joyfit.jp/kyodo/app_join/" class="banner-btn app" target="_blank">
+        <i class="ph-bold ph-user-plus" style="font-size: 1.2rem;"></i>JOYFIT APP入会はこちら
+    </a>
+</div>
+
+<div id="banner-toggle-container">
+    <button id="banner-toggle-btn"><i class="ph ph-x" id="toggle-icon"></i></button>
+    <div class="toggle-tooltip" id="toggle-tooltip">閉じる</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 現在の日時を取得
+    const now = new Date(); 
+    
+    // キャンペーン期間設定 (2026年2月28日(土)まで)
+    const CAMPAIGN_END_DATE = new Date(2026, 1, 28, 23, 59, 59, 999);
+    
+    // 残り人数 (先着5名 -> 最終日1名)
+    const remainingSlotsEl = document.getElementById('remaining-slots');
+    function getRemainingSlots(currentDate) {
+        const fixedEndDate = new Date(CAMPAIGN_END_DATE.getFullYear(), CAMPAIGN_END_DATE.getMonth(), CAMPAIGN_END_DATE.getDate());
+        const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+        
+        if (today.getTime() > fixedEndDate.getTime()) { return 0; }
+        
+        // 2月28日を基準とした残り日数を計算
+        const diffTime = fixedEndDate.getTime() - today.getTime();
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        
+        // カウントダウンロジック:
+        // 28日(diffDays=0) -> 1名
+        // 27日(diffDays=1) -> 2名
+        // 26日(diffDays=2) -> 3名
+        // 25日(diffDays=3) -> 4名
+        // 24日以前(diffDays>=4) -> 5名
+        
+        let slots = diffDays + 1;
+        if (slots > 5) { slots = 5; } // 最大5名でキャップ
+        
+        return slots;
+    }
+    
+    function updateRemainingSlots() {
+        const slots = getRemainingSlots(now);
+        if (remainingSlotsEl) {
+            if (slots > 0 && now.getTime() < CAMPAIGN_END_DATE.getTime()) {
+                remainingSlotsEl.textContent = `残り${slots}名様`; 
+            } else {
+                remainingSlotsEl.textContent = `終了しました`;
+            }
+        }
+    }
+    updateRemainingSlots();
+
+    // カウントダウン
+    let countdownInterval;
+    function createCountdownHTML(days, hours, minutes, seconds) {
+        return `
+            <div class="countdown-circle"><div class="countdown-number">${String(days).padStart(2, '0')}</div><div class="countdown-unit">日</div></div>
+            <div class="countdown-circle"><div class="countdown-number">${String(hours).padStart(2, '0')}</div><div class="countdown-unit">時間</div></div>
+            <div class="countdown-circle"><div class="countdown-number">${String(minutes).padStart(2, '0')}</div><div class="countdown-unit">分</div></div>
+            <div class="countdown-circle"><div class="countdown-number">${String(seconds).padStart(2, '0')}</div><div class="countdown-unit">秒</div></div>
+        `;
+    }
+    
+    function updateAllCountdowns() {
+        const distance = CAMPAIGN_END_DATE.getTime() - new Date().getTime(); // リアルタイム更新
+        const bannerCountdownContainer = document.getElementById('banner-countdown');
+        if (distance > 0) {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (bannerCountdownContainer) bannerCountdownContainer.innerHTML = createCountdownHTML(days, hours, minutes, seconds);
+        } else {
+            clearInterval(countdownInterval);
+            if (bannerCountdownContainer) bannerCountdownContainer.innerHTML = "<p style='font-size: 1rem; font-weight: 700; color: var(--brand);'>キャンペーンは終了しました</p>";
+        }
+    }
+    
+    // 1秒ごとに更新
+    updateAllCountdowns();
+    countdownInterval = setInterval(updateAllCountdowns, 1000);
+
+    // --- タブ切り替え（フェード式） ---
+    const tabs = document.querySelectorAll('.plan-tab');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.getAttribute('data-target');
+            
+            // タブのアクティブ切り替え
+            document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // コンテンツのアクティブ切り替え
+            document.querySelectorAll('.plan-content-item').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // --- オプションカルーセル ---
+    const allOptions = [
+        { name: '水素水 & プロテイン', price: '月額 3,240円', icon_img: '37.png', description: '水素水＋プロテイン<br>[１日６杯迄]のお得なセット' },
+        { name: 'ホットスタジオ', price: '月額 1,100円', icon_img: '36.png', description: '世田谷エリア最大級<br>のレッスンで滝汗体験!' },
+        { name: 'あんしんサポートVIP', price: '月額 825円', icon_img: '41.png', description: '万が一の時にも安心な<br>JOYFIT専用サポートプラン' },
+        { name: 'オンラインレッスン', price: '月額 1,100円', icon_img: '42.png', description: '自宅で本格的なレッスンが出来る!<br>ジムに来れない日でも安心' },
+        { name: 'タンニングマシン', price: '月額 5,500円', icon_img: '44.png', description: '理想の日焼け肌を手に入れたい方へ!<br>※1日20分まで' },
+        { name: 'セルフエステ', price: '月額 3,300円', icon_img: '45.png', description: 'エステサロンと同じ<br>業務用マシンが使い放題' },
+        { name: 'レンタルマット', price: '月額 1,100円', icon_img: '38.png', description: 'マットを持ってこなくてＯＫ!<br>ホットスタジオ参加には必須!' },
+        { name: 'レンタルタオル', price: '月額 1,650円', icon_img: '40.png', description: '汗をかいても安心レンタル<br>フェイスタオル・バスタオル' },
+        { name: '体組成計', price: '月額 550円', icon_img: '39.png', description: '体脂肪、筋肉量を測定し<br>トレーニングを最適化' }
+    ];
+
+    const paidOptions = [
+        { name: '契約ロッカー', price: '月額 1,650円', icon_img: '43.png', description: 'ウェアやシューズを置いたままに<br>あなた専用のロッカー' },
+        { name: 'ピラティスリフォーマー', price: '月額 3,300円', icon_img: '46.png', description: 'ピラティスマシンを使い<br>体幹等を鍛える本格レッスン' },
+        { name: 'ヨガマットロッカー', price: '月額 1,100円', icon_img: '47.png', description: 'ご自身のヨガマットを保管<br>荷物を減らしたい方へ' }
+    ];
+
+    function initializeCarousel(options, containerId, navPrevId, navNextId, isPaid = false) {
+        const carouselContainer = document.getElementById(containerId);
+        const prevBtn = document.getElementById(navPrevId);
+        const nextBtn = document.getElementById(navNextId);
+        if (!carouselContainer) return;
+        
+        const createCardHTML = (option) => `
+            <div class="option-card-3d">
+                <div class="card-badge ${isPaid ? 'paid' : 'free'}">${isPaid ? '有料オプション' : '無料オプション'}</div>
+                <div class="card-icon-area">
+                    <img src="./${option.icon_img}" alt="${option.name}" class="card-icon" onerror="this.onerror=null; this.src='https://placehold.co/150x150/transparent/cccccc?text=Option';">
+                </div>
+                <div class="card-info-area">
+                    <h4 class="card-title">${option.name}</h4>
+                    <p class="card-price">${option.price.split(' ')[1]}<span class="unit"> / ${option.price.split(' ')[0]}(税込)</span></p>
+                    <p class="card-description">${option.description}</p>
+                </div>
+            </div>`;
+        carouselContainer.innerHTML = options.map(createCardHTML).join('');
+        const cards = carouselContainer.querySelectorAll('.option-card-3d');
+        const totalCards = cards.length;
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        function updateCarousel() {
+            const activeIndex = (currentIndex % totalCards + totalCards) % totalCards;
+            cards.forEach((card, index) => {
+                const relativePos = ((index - activeIndex + totalCards) % totalCards);
+                let transform = ''; let opacity = 0; let zIndex = 0;
+                switch (relativePos) {
+                    case 0: transform = 'translateX(-50%) scale(1)'; opacity = 1; zIndex = 20; break;
+                    case 1: transform = 'translateX(20%) scale(0.85)'; opacity = 0.6; zIndex = 10; break;
+                    case totalCards - 1: transform = 'translateX(-120%) scale(0.85)'; opacity = 0.6; zIndex = 10; break;
+                    default: transform = relativePos < totalCards / 2 ? 'translateX(50%) scale(0.6)' : 'translateX(-150%) scale(0.6)'; opacity = 0; zIndex = 0; break;
+                }
+                card.style.transform = transform; card.style.opacity = opacity; card.style.zIndex = zIndex;
+            });
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(() => { currentIndex++; updateCarousel(); }, 4000);
+        }
+        function stopAutoPlay() { if (autoPlayInterval) clearInterval(autoPlayInterval); }
+
+        if(prevBtn) prevBtn.addEventListener('click', () => { currentIndex--; updateCarousel(); stopAutoPlay(); startAutoPlay(); });
+        if(nextBtn) nextBtn.addEventListener('click', () => { currentIndex++; updateCarousel(); stopAutoPlay(); startAutoPlay(); });
+
+        let startX = 0;
+        let isDragging = false;
+        carouselContainer.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; isDragging = true; stopAutoPlay(); }, {passive: true});
+        carouselContainer.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            const diff = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) { if (diff > 0) currentIndex++; else currentIndex--; updateCarousel(); }
+            isDragging = false; startAutoPlay();
+        });
+
+        updateCarousel();
+        startAutoPlay();
+    }
+    initializeCarousel(allOptions, 'card-carousel-free', 'carousel-prev-free', 'carousel-next-free');
+    initializeCarousel(paidOptions, 'card-carousel-paid', 'carousel-prev-paid', 'carousel-next-paid', true);
+
+    // --- 日割り計算を廃止・2月会費0円に固定 ---
+    function calculatePrice(elementId, totalElementId) {
+        const INITIAL_FEE = 2200; // 入会金のみ
+        const priceEl = document.getElementById(elementId);
+        const totalInitialPriceEl = document.getElementById(totalElementId);
+        
+        let currentMonthFee = 0; // 2月会費は完全無料
+
+        if (priceEl) {
+            // 無料感を伝える表示
+            priceEl.innerHTML = `
+                <span class="price-value zero-yen" style="color: var(--brand); font-size: 1.6rem;">0<span class="unit">円</span></span>
+                <span class="free-option-note" style="display: block; margin-top: 4px; background: #fff0f0; padding: 4px 8px; border-radius: 4px; color: var(--brand); font-weight: 700; font-size: 0.85rem;">2月会費無料!</span>
+            `;
+        }
+        if(totalInitialPriceEl) {
+            totalInitialPriceEl.innerHTML = `${(currentMonthFee + INITIAL_FEE).toLocaleString()}<span class="unit-large">円(税込)</span>`;
+        }
+    }
+    
+    // 両方のプランで計算（表示）実行
+    calculatePrice('daily-rate-price-plan1', 'initial-total-price-plan1');
+    calculatePrice('daily-rate-price-plan2', 'initial-total-price-plan2');
+
+    const toggleBtn = document.getElementById('banner-toggle-btn');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const toggleTooltip = document.getElementById('toggle-tooltip');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            document.body.classList.toggle('banner-hidden');
+            if (document.body.classList.contains('banner-hidden')) {
+                toggleIcon.classList.replace('ph-x', 'ph-caret-up');
+                toggleTooltip.textContent = "バナーを表示";
+            } else {
+                toggleIcon.classList.replace('ph-caret-up', 'ph-x');
+                toggleTooltip.textContent = "閉じる";
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>
